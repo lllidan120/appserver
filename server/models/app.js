@@ -8,7 +8,7 @@ var modelSchema = new mongoose.Schema({
     jsVersion: { type: String, require: true },
     timestamp: {type: Number, require: true },
     createTime: {type: String, default: moment().format('YYYY-MM-DD h:m:s')}
-})
+}) 
 
 modelSchema.methods.findbyAppName = (appName, callback) => {
     this.model('app').find({ appName }, callback)

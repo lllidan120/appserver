@@ -9,6 +9,14 @@ const routes = require("./routes");
 const app = express();
 const EROS_OPTIONS = require('./config')
 
+const log4js = require('./log-config')
+const logger = log4js.getLogger()//根据需要获取logger
+const errlogger = log4js.getLogger('err')
+const othlogger = log4js.getLogger('oth')
+
+log4js.useLogger(app, logger)
+
+
 mongoose.connect(EROS_OPTIONS.db);
 app.use(EROS_OPTIONS.staticVirtualPath, express.static(EROS_OPTIONS.staticRealPath))
 app.set("port", process.env.PORT || EROS_OPTIONS.defaultPort);

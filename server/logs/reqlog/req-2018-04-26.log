@@ -1,0 +1,4 @@
+[2018-04-26T09:23:13.814] [INFO] default - [::1 GET /app/check?appName=yjapp&jsPath=http://47.106.121.134:3001/static/&android=1.0.0&jsVersion=71a7a4b3697a37713413f1ab45eb186b 200 43ms][ HTTP/1.1 PostmanRuntime/7.1.1]
+[2018-04-26T09:23:24.767] [INFO] default - [::1 GET /app/list?appName=yjapp 500 4ms][ HTTP/1.1 PostmanRuntime/7.1.1]
+[2018-04-26T09:23:37.223] [INFO] default - [::1 GET /app/list?appName=yjapp 500 0ms][ HTTP/1.1 PostmanRuntime/7.1.1]
+[2018-04-26T09:23:55.461] [INFO] default - [::1 GET /app/list?appName=yjapp 200 41ms][ HTTP/1.1 PostmanRuntime/7.1.1]

@@ -4,6 +4,7 @@ var AppModel =  require("../models/app"),
     config = require('../config')
 
 
+
 const add = (req, res, next) => {
     let appInfo = new AppModel(req.body)
 
@@ -16,7 +17,6 @@ const add = (req, res, next) => {
 
 const list = (req, res, next) => {
     let { appName } = req.query
-    
     AppModel.find({ appName }).sort({ _id : 'desc'}).exec((err, app) =>{
         if (err) { return next(err) }
         if (!app) { return next(404) }
@@ -36,6 +36,7 @@ const check = (req, res, next) => {
     if(jsVersion) checkParams['jsVersion'] = jsVersion
     checkParams[platform] = version
     AppModel.find(checkParams, (err, apps) =>{
+        
         if (err) { return next(err) }
         requestZip({
             res, apps, appName, platform, version, jsVersion, isDiff, next
@@ -65,7 +66,7 @@ const requestZip = ({res, apps, appName, platform, version, jsVersion, isDiff, n
 
         const fullZipPath = `${newests[0].jsPath}${newests[0].jsVersion}.zip`
         const diffZipPath = `${newests[0].jsPath}${md5(jsVersion + newests[0].jsVersion)}.zip`
-
+     
         if(isDiff == 0 || isDiff === 'false' || isDiff === false) {
             // 请求全量包
             res.send(format({
